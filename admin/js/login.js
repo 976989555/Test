@@ -10,14 +10,14 @@ $(function () {
 
         //非空判断
         if (username === '' || password === '') {
-            $('#myModal').modal('show')
+            $('#myModal').modal('show');
             var timeId = setTimeout(function () {
-                $('#myModal').modal('hide')
-                clearTimeout(timeId)
+                $('#myModal').modal('hide');
+                clearTimeout(timeId);
             }, 2000);
-            $('#myModal .modal-body p').text('用户名或密码不能为空')
+            $('#myModal .modal-body p').text('用户名或密码不能为空');
             return;
-        };
+        }
 
         // 发送ajax请求
         $.ajax({
@@ -28,17 +28,17 @@ $(function () {
                 password: password
             },
             success: function (res) {
-                $('#myModal').modal('show')
-                $('.modal-body p').text(res.msg)
+                $('#myModal').modal('show');
+                $('.modal-body p').text(res.msg);
                 if (res.code == 200) {
                     // 将服务器端响应回来的token字符串，存储到本地存储当中
-                    localStorage.setItem('token', res.token)
+                    localStorage.setItem('token', res.token);
                     // 此事件在模态框被隐藏（并且同时在 CSS 过渡效果完成）之后被触发。
                     $('#myModal').on('hidden.bs.modal', function (e) {
-                        window.location.href = './index.html'
-                    })
+                        window.location.href = './index.html';
+                    });
                 }
             }
-        })
-    })
-})
+        });
+    });
+});
