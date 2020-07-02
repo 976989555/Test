@@ -38,6 +38,7 @@ $(function () {
             $('.menu .level02').slideToggle();
             // 右侧小三角也要进行切换
             $(this).find('b').toggleClass('rotate0')
+
             // 只要展开或是合并文章管理，就要让第一个li标签高亮显示
             $('.menu .level02 li:eq(0)').trigger('click')
         }
@@ -45,9 +46,7 @@ $(function () {
     // 文章管理中的li标签被点击的时候，高亮显示 
     // 给每一个li标签注册事件
     $('.menu .level02 li').on('click', function () {
-        // 
+        // 当前被单击的要高亮显示(添加类active)，其它的移除类
         $(this).addClass('active').siblings().removeClass('active')
     })
-
-
 })
